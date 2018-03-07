@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 案例</title>
+    <script type="text/javascript">
+        // window.addEventListener('load', eventWindowLoaded, false);
+        // function eventWindowLoaded() {
+        //     canvasApp();
+        // }
+        window.onload=function(){
+            canvasapp();
+        }
+        function canvasapp(){
+            var  theCanvas=document.getElementById("canvas");
+            var context=theCanvas.getContext('2d');
+            
+            context.fillRect(0,0,50,50);
+            context.fillStyle='rgba(0,0,200,200)';
+            context.clearRect(10, 10, 25, 25);
+            theCanvas.onclick=function(){
+                theCanvas.height=100;
+            }
+            console.log("构造函数:"+context.constructor);
+            console.log(context instanceof CanvasRenderingContext2D);
+            console.log(CanvasRenderingContext2D.prototype == context.prototype);
+        }
+        
+    </script>
+</head>
+
+<body>
+    <!--<div style="position: absolute; top: 50px; left: 50px;">-->
+    <div>
+        <canvas id="canvas" width="500" height="500" style="border:5px solid #ccc">
+            Your browser does not support the HTML 5 Canvas.
+        </canvas>
+    </div>
+</body>
+
+</html>
