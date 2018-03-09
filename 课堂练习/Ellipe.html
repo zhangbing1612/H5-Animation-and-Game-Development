@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Canvas绘图基本形状</title>
     <script type="text/javascript">
         window.addEventListener('load', eventWindowLoaded, false);
         function eventWindowLoaded() {
@@ -15,34 +15,19 @@
             var context = theCanvas.getContext('2d');
             drawEllipse(context);
         }
-  //弧形
+//   弧形
         function drawEllipse(ctx) {
             ctx.save();
             ctx.strokeStyle = 'red';
             ctx.lineWidth = 10;
             ctx.beginPath();
-            //x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise(默认为false)
+            
             ctx.ellipse(100, 100, 50, 75, Math.PI/8, Math.PI/8, 8 * Math.PI,false); //
-            // ctx.ellipse(100, 100, 50, 75, 45 * Math.PI / 180, 0, 2 * Math.PI); //倾斜45°角ctx.stroke();
+         
             ctx.stroke();
             ctx.restore();
         }
 
-        //绘制三角形方法
-        function drawTriangle(ctx) {
-            ctx.triangle(10,210,100,20,10,300);
-        }
-
-        //思考如何扩展context，使之具有context.strokeTriangle; context.fillTriangle 
-        CanvasRenderingContext2D.prototype.triangle = function (x1,y1,x2,y2,x3,y3) {
-            //alert("扩展context方法triAngle");
-            //console.log(this);
-            this.moveTo(x1,y1);
-            this.lineTo(x2,y3);
-            this.lineTo(x3,y3);
-            this.closePath();
-            this.stroke();
-        }
     </script>
 </head>
 
